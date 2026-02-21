@@ -1,0 +1,35 @@
+/* S C R O L L B A R ---------------------------------------------------------------*/
+
+html {
+    scrollbar-face-color: #646464;
+    scrollbar-base-color: #646464;
+    scrollbar-3dlight-color: #646464;
+    scrollbar-highlight-color: #646464;
+    scrollbar-track-color: #333;
+    scrollbar-shadow-color: #646464;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 0.5rem;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #646464; width: 0; }
+
+/* Tabs on top and bottom of scrollbar */
+::-webkit-scrollbar-track { background-color: #111; }
+::-webkit-scrollbar-track-piece { background-color: #111; }
+
+::-webkit-scrollbar-thumb,
+#pullup.about::-webkit-scrollbar-thumb {
+    height: 6rem;
+    background-color: #fff3;
+    border-radius: 0;
+}
+
+#pullup::-webkit-scrollbar-thumb {
+    background-color: var(--spotColor);
+}
+
+::-webkit-scrollbar-corner { background-color: #111; }

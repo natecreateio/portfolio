@@ -1,0 +1,447 @@
+#pullup {
+    display: block;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 6rem + 1px);
+    padding: 5rem 5rem 0rem 5rem;
+    background: var(--background);
+    z-index: 1;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+#pullup.setScroll { scroll-behavior: auto; }
+
+#pullup.show { top: 6rem; }
+
+#pullupToggle {
+    display: block;
+    position: absolute;
+    left: calc(50vw - 0.75rem);
+    top: 0rem;
+    padding: 0 0 0 2rem;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(90deg) scale(1.5, 2.5);
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#pullupToggle::selection { background: none; }
+
+#pullupToggle:hover {
+    opacity: 0.5;
+}
+
+#pullup .hero::before {
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0008;
+}
+
+/* Pullup Hero -------------------------------------------------------------*/
+
+#pullup .hero {
+    display: flex;
+    flex-flow: column wrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20rem;
+    background: url(https://fungi.sorrelsprout.com/resources/heroes/hero.jpg) no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    justify-content: center;
+}
+
+#pullup .hero::before {
+    backdrop-filter: blur(3px);
+    width: 100%;
+    height: 100%;
+}
+
+#pullup .hero h1,
+#pullup .hero p {
+    font-size: 2em;
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#pullup #pullupContent h1 {
+    font-size: 1.68em;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#pullup .hero p {
+    font-size: 1em;
+}
+
+/* Pullup Description ------------------------------------------------------*/
+
+#pullup .fullDescription {
+    margin: 18rem auto 0 auto;
+    max-width: var(--maxWidth);
+    width: 100%;
+}
+
+#pullup #pullupContent { display: none; }
+
+#pullup #pullupContent.show { display: flex; }
+
+#pullup .column { display: flex; }
+
+#pullup .column > * { 
+    flex: 1; 
+    margin-right: 2rem;
+}
+
+#pullup .column > *:last-child { margin-right: 0; }
+
+@media (max-width: 768px){
+    #pullup .column { flex-direction: column; }
+    #pullup .column > *, #pullup .column > *:last-child{  margin: 0;  }
+}
+
+#pullup .highlight {
+    position: relative;
+    display: flex;
+    background: #000;
+    padding: 2rem;
+    margin: 2rem 0 2rem;
+    border-left: 0.25rem solid var(--spotColor);
+}
+
+#pullup .highlight > * {
+    margin: 0;
+    padding: 0;
+}
+
+#pullup .highlight > *:first-child { 
+    position: absolute;
+    top: 0;
+    left: -1.5rem;
+    margin-right: 2rem;
+    color: var(--spotColor);
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+#pullup .highlight > ul:last-child { 
+    margin-left: 3rem;
+    padding-left: 1rem;
+}
+
+@media (max-width: 768px){
+    #pullup .highlight, #pullup .highlight > * { flex-direction: column; }
+    #pullup .highlight > ul:last-child { margin-left: 0; }
+    #pullup .highlight > *:last-child br {  display: none; }
+}
+
+#pullup .highlight.overview > ul,
+#pullup .highlight.overview > ul:last-child { 
+    margin-left: 0;
+    padding-left: 0;
+    display: flex;
+    width: 100%; 
+}
+
+#pullup .highlight.overview > ul li {
+    justify-content: space-between;
+    flex: 1;
+    flex-grow: 1;
+    list-style-type: none;
+    margin-left: 1rem;
+}
+
+#pullup .highlight.overview > ul li:first-child {
+    margin-left: 0;
+    flex-grow: 3;
+    width: 100%;
+}
+
+#pullup .highlight.overview > ul li:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 768px){
+    #pullup .highlight.overview > ul li { 
+        margin-left: 0; 
+        margin-bottom: 1rem;
+    }
+    #pullup .highlight.overview > ul li:last-child { margin-bottom: 0; }
+}
+
+
+/* About -------------------------------------------------------------------*/
+
+#pullup #profilePhoto {
+    display:block;
+    position: absolute;
+    left: calc(50vw - 4rem);
+    top: 16rem;
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 0;
+    object-fit: cover;
+    box-shadow: 0 0 0 0.4rem var(--background);
+    background: var(--background);
+    border-radius: 100% !important;
+    z-index: 1;
+}
+
+#pullup span.aboutSection {
+    display: block;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px){
+    #pullup span.aboutSection { margin-top: -2rem; }
+    #pullup span.aboutSection h2:first-of-type { border-top: none; }
+}
+
+/* Footer -------------------------------------------------------------------*/
+
+#pullup .footer {
+    margin: 2rem auto 0 auto;
+    border-top: 1px solid #555;
+}
+
+#pullup .footer .copyright, #pullup .footer i {
+    padding: 0;
+    margin: 0;
+}
+
+/* Pullup Typography -------------------------------------------------------*/
+
+#pullup h1, #pullup h2, #pullup h3, #pullup h4, #pullup h5, #pullup h6 {
+    line-height: 1.2em;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+#pullup h2 {
+    border-top: 1px solid #555;
+    margin-top: 4rem;
+    padding-top: 4rem;
+    font-size: 1.35em;
+}
+
+/* #pullup h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+} */
+
+#pullup h3 {
+    font-size: 1em;
+    margin-bottom: 0.5rem;
+}
+
+#pullup p, #pullup ul {
+    line-height: 1.68em;
+    margin-bottom: 1.68em;
+}
+
+#pullup ul {
+    list-style-type: disc;
+    margin-left: 1.2rem;
+}
+
+#pullup strong { font-weight: 600; }
+
+#pullup .button:not(.btt) {
+    display: inline-block;
+    margin: 0 1rem 2rem 0;
+    background: var(--buttonBG);
+    color: var(--buttonText);
+    padding: 1rem;
+    transition: 0.25s ease;
+}
+
+#pullup .button:hover, #pullup a:hover { opacity: 0.75; }
+
+#pullup a:not(.btt) {
+    font-weight: bold;
+    /* text-decoration: underline; */
+    color: var(--linkColor);
+}
+
+
+/* Pullup Image + Gallery ----------------------------------------------------*/
+
+#pullup .gallery { 
+    display: flex; 
+    max-width: 100%; 
+}
+
+#pullup img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    padding: 2px;
+}
+
+#pullup figure {
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+    flex: 1;
+}
+
+#pullup figure img { margin-bottom: 0.5rem; }
+
+#pullup figcaption {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    font-style: italic;
+    text-align: center;
+    margin: 0 1rem;
+}
+
+#pullup .click-zoom { flex: 1; }
+
+#pullup .click-zoom input[type=checkbox] {
+    display: none;
+    z-index: 1;
+}
+  
+#pullup .click-zoom img { cursor: zoom-in; }
+  
+#pullup .click-zoom input[type=checkbox]:checked~img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0.5rem solid var(--background);
+    border-top: 6.5rem solid var(--background);
+    background: var(--BGColor);
+    z-index: 2;
+    object-fit: contain;
+    cursor: zoom-out;
+    background: var(--background);
+}
+
+#pullup .websitescroll_container {
+    margin: 4rem 0;
+}
+
+#pullup .websitescroll { position: relative; }
+#pullup .websitescroll.mobile figure { 
+    max-width: 414px;
+    max-height: calc(100vh - 10rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pullup .websitescroll figure {
+    max-height: 25rem;
+    overflow-y: scroll;
+}
+
+#pullup .websitescroll figcaption {
+    position: absolute;
+    left: -1rem;
+    bottom: -0.5rem;
+    width: 100%;
+}
+
+@media (max-width: 768px){
+    #pullup .websitescroll_container { margin-top: 0; }
+    #pullup .websitescroll { margin: 2rem 0 4rem; }
+}
+
+#pullup .click-zoom.websitescroll:before,
+#pullup .click-zoom.websitescroll::after {
+    animation: wobble 10s infinite;
+}
+
+#pullup .click-zoom.websitescroll:hover::before,
+#pullup .click-zoom.websitescroll:hover::after {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+#pullup .click-zoom.websitescroll::before {
+    content: "SCROLL ME!";
+    display: block;
+    position: absolute;
+    top: -2.95rem;
+    left: calc(50% - 3.5rem);
+    width: 6rem;
+    padding: 0.3rem;
+    text-align: center;
+    border: solid 0.25rem var(--spotColor);
+    color: var(--spotColor);
+    font-weight: 600;
+    word-spacing: 0.2rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease-out;
+}
+
+#pullup .click-zoom.websitescroll:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -0.8rem;
+    left: calc(50% - 0.5rem);
+    border-right: 0.5rem solid transparent;
+    border-top: 0.8rem solid var(--spotColor);
+    border-bottom: 0.8rem solid transparent;
+    border-left: 0.5rem solid transparent;
+    transition: all 0.3s ease-out;
+}
+
+@keyframes wobble {
+    0% { transform: translateX(0%); } 
+    94% { transform: translateX(0%); } 
+    95% { transform: translateX(-5%) rotate(-1deg); } 
+    96% { transform: translateX(4%) rotate(2deg); } 
+    97% { transform: translateX(-3%) rotate(-3deg); } 
+    98% { transform: translateX(2%) rotate(2deg); }
+    99% { transform: translateX(-1%) rotate(-1deg); }
+    100% { transform: translateX(0%); } 
+} 
+
+#pullup .videoContainer {
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+    width:100%;
+    margin-bottom: 2rem;
+}
+
+#pullup .videoContainer iframe {
+    position: absolute;
+    top: 0; left: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#pullup iframe { margin-bottom: 2rem; }
+
+/* Queries -------------------------------------------------------------------*/
+
+@media (max-width: 768px){
+    #pullup { padding: 3.5rem 2.2rem 2rem 2.2rem; }
+    #pullup .gallery { flex-direction: column; }
+}
